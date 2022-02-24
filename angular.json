@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "fee93c30-12c5-44de-ac30-e8a0562cf5b2"
+    "analytics": "81363582-a1ae-49c1-9b82-ff2d54b61826"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Portal": {
+    "OperationPaga": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Portal",
+            "outputPath": "dist/operation-paga",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Portal:build:production"
+              "browserTarget": "OperationPaga:build:production"
             },
             "development": {
-              "browserTarget": "Portal:build:development"
+              "browserTarget": "OperationPaga:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Portal:build"
+            "browserTarget": "OperationPaga:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "Portal"
+  "defaultProject": "OperationPaga"
 }

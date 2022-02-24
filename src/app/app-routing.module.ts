@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { components } from './components';
 import { AlertPage } from './pages/alerts';
 import { DetectionsPage } from './pages/detections';
 import { HomePage } from './pages/home';
@@ -11,7 +8,9 @@ import { NotFoundPage } from './pages/not-found';
 import { NotificationsPage } from './pages/notifications';
 import { RegisterPage } from './pages/register';
 import { LoginGuard } from './services/login.guard';
-
+import { components } from './components';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: HomePage, pathMatch: 'full', canActivate: [LoginGuard]},
@@ -36,9 +35,9 @@ const pages = [
 @NgModule({
   declarations: [
     ...components,
-    ...pages
+    ...pages,
   ],
   imports: [RouterModule.forRoot(routes), BrowserModule, ReactiveFormsModule],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
