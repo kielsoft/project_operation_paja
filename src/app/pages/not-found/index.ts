@@ -14,7 +14,7 @@ export class NotFoundPage implements OnInit {
     }
 
     ngOnInit(): void {
-
+        this.coreService.setPageTitle('404 - Page Not Found');
     }
 
 }

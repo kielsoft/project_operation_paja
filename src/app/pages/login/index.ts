@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
     }
 
     ngOnInit(): void {
-        this.coreService.setPageTitle('Alert Broadcast');
+        this.coreService.setPageTitle('Login');
     }
     
     login() {
