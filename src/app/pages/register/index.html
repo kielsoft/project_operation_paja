@@ -1,0 +1,67 @@
+<main-menu></main-menu>
+<section class="container overflowAuto" style="background-color: white;">
+    <div style="margin: 20px;">
+        <h2 class="block">Criminals Data</h2>
+        <form [formGroup]="searchForm" class="searchForm" style="margin: 0 auto; width: fit-content;">
+            <h3 class="block alignCenter">Add New Criminal</h3>
+            <div class="fieldGroup">
+                <label>Criminal Name:</label>
+                <input type="text" formControlName="name" placeholder="John Do" />
+            </div>
+            <div class="fieldGroup">
+                <label>Gender:</label>
+                <select formControlName="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div><br>
+            <div class="fieldGroup">
+                <label>Year of Birth(Assummed):</label>
+                <input type="number" formControlName="yearOfBirth" placeholder="1982" required />
+            </div>
+            <div class="fieldGroup">
+                <label>Criminal Classification:</label>
+                <select formControlName="classification">
+                    <option value="commander">Commander (Cd)</option>
+                    <option value="gateKeeper">Gate-Keeper (Gk)</option>
+                    <option value="footSoldier">Foot-Soldier (Fs)</option>
+                </select>
+            </div><br>
+            <div class="fieldGroup">
+                <label>Description:</label>
+                <textarea formControlName="description" placeholder="Enter a brief description"></textarea>
+            </div><br>
+            <div class="fieldGroup">
+                <button (click)="addCriminal()">Submit</button>
+            </div>
+        </form>
+        <br><br>
+        <h3 class="block alignCenter">Criminals</h3>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Classification</th>
+                    <th>Captured</th>
+                    <th>Terminated</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of coreService.getCriminalList(); let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.gender.toUpperCase()}}</td>
+                    <td>{{2022-item.yearOfBirth}}yrs</td>
+                    <td>{{item.classification}}</td>
+                    <td>{{item.captured? 'YES' : 'NO'}}</td>
+                    <td>{{item.captured? 'Classified' : 'NO'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</section>
+<main-footer></main-footer>

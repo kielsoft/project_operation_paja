@@ -1,0 +1,58 @@
+<main-menu></main-menu>
+<section class="container overflowAuto" style="background-color: white;">
+    <div style="margin: 20px;">
+        <h2 class="block">Crime Notificaitons</h2>
+        <form [formGroup]="searchForm" class="searchForm">
+            <div class="fieldGroup">
+                <label for="states">States:</label>
+                <select formControlName="states" id="states" multiple="true" (change)="doSearch()">
+                    <option [value]="loc" *ngFor="let loc of coreService.crimeLocations">{{loc}}</option>
+                </select>
+                <div class="alignLeft">
+                    <span class="selectedItem" *ngFor="let selectedState of searchForm.value.states">
+                        {{selectedState}}
+                        <span class="material-icons" (click)="clearSelectedStates(selectedState)">cancel</span>
+                    </span>
+                    <span *ngIf="searchForm.value.states.length" class="selectedItem clearer" (click)="clearSelectedStates()">Clear All</span>
+                </div>      
+            </div>
+            <div class="fieldGroup">
+                <label for="states">Crime Types:</label>
+                <select formControlName="types" id="types" multiple="true" (change)="doSearch()">
+                    <option [value]="cType" *ngFor="let cType of coreService.crimeTypes">{{cType}}</option>
+                </select>
+                <div class="alignLeft">
+                    <span class="selectedItem" *ngFor="let selectedType of searchForm.value.types">
+                        {{selectedType}}
+                        <span class="material-icons" (click)="clearSelectedTypes(selectedType)">cancel</span>
+                    </span>
+                    <span *ngIf="searchForm.value.types.length" class="selectedItem clearer" (click)="clearSelectedTypes()">Clear All</span>
+                </div>      
+            </div>
+        </form>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Reporter ID</th>
+                    <th>Crime Types/Location</th>
+                    <th>Description</th>
+                    <th>Detection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of notifications">
+                    <td>{{item.timestamp.toUTCString()}}</td>
+                    <td>{{item.userId}}</td>
+                    <td>
+                        {{item.types.join(', ').toUpperCase()}}<br>
+                        <a target="_blank" href="https://www.google.com/maps/place/Mega+fashion+store+BGU+ZAWAMA+Ventures/@12.3717016,11.8668518,6.98z/data=!4m5!3m4!1s0x11049ff1f596cd97:0x8efa8dee53dc2a28!8m2!3d11.8293892!4d13.1484112">{{item.state}} <span class="material-icons">place</span></a></td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.detection}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+</section>
+<main-footer></main-footer>

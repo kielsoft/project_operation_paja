@@ -1,0 +1,92 @@
+table {
+    font-size: 14px;
+    border-spacing: 1px;
+    text-align: center;
+
+    th {
+        background-color: #ddd;
+    }
+
+    th, td {
+        border: thin solid #ddd;
+        padding: 5px;
+
+        .material-icons {
+            font-size: 20px;
+        }
+    }
+}
+
+.fieldGroup {
+    vertical-align: top;
+    border: none;
+    box-sizing: border-box;
+    margin: 0 5px 10px 0;
+    
+    label {
+        display: block;
+        font-weight: bold;
+        padding: 10px 0 5px;
+    }
+
+    select {
+        option {
+            font-size: 15px;
+            border: thin solid #faecec;
+            padding: 5px;
+            text-transform: capitalize;
+        }
+    }
+
+    select, input, textarea, button {
+        width: 300px;
+        padding: 10px;
+        font-size: 18px;
+        box-sizing: border-box;
+        // border: thin solid #ff9494;
+        &.ng-touched.ng-invalid {
+            border: thin solid red; 
+        }
+    }
+
+    button {
+        border: thin solid #aaa;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    .selectedItem {
+        display: inline-block;
+        padding: 5px;
+        font-size: 12px;
+        line-height: 18px;
+        background-color: #e0e0e0;
+        border: thin solid #c7c6c6;
+        color: #414141;
+        border-radius: 20px;
+        white-space: nowrap;
+        margin: 2px;
+        cursor: default;
+
+        &.clearer {
+            border: none;
+            background-color: transparent;
+            color: #8a1919;
+            cursor: pointer;
+        }
+
+        span {
+            font-size: 20px;
+            line-height: 20px;
+            vertical-align: middle;
+            color: #8a1919;
+            cursor: pointer;
+        }
+    }
+}
+
+form.ng-submitted .ng-invalid {
+    border: thin solid red; 
+}

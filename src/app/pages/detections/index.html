@@ -1,0 +1,83 @@
+<main-menu></main-menu>
+<section class="container overflowAuto" style="background-color: white;">
+    <div style="margin: 20px;">
+        <h2 class="block">Tracking &amp; Detections</h2>
+        <form [formGroup]="searchForm" class="searchForm">
+            <div class="fieldGroup">
+                <label for="states">States:</label>
+                <select formControlName="states" id="states" multiple="true" (change)="doSearch()">
+                    <option [value]="loc" *ngFor="let loc of coreService.crimeLocations">{{loc}}</option>
+                </select>
+                <div class="alignLeft">
+                    <span class="selectedItem" *ngFor="let selectedState of searchForm.value.states">
+                        {{selectedState}}
+                        <span class="material-icons" (click)="clearSelectedStates(selectedState)">cancel</span>
+                    </span>
+                    <span *ngIf="searchForm.value.states.length" class="selectedItem clearer" (click)="clearSelectedStates()">Clear All</span>
+                </div>      
+            </div>
+            <div class="fieldGroup">
+                <label for="states">Date From:</label>
+                <input type="date" formControlName="dateFrom" /><br><br>
+                <label for="states">Date To:</label>
+                <input type="date" formControlName="dateTo" />
+                    
+            </div>
+        </form>
+        <table *ngIf="!searchForm.value.states.length" width="100%">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Cd</th>
+                    <th>Gk</th>
+                    <th>Fs</th>
+                    <th>Notificaitons</th>
+                    <th>Detection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of statesData">
+                    <td>{{item.state}}</td>
+                    <td>{{item.cd}}</td>
+                    <td>{{item.gk}}</td>
+                    <td>{{item.fs}}</td>
+                    <td>{{item.notifications}}</td>
+                    <td>{{item.detections}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table *ngIf="searchForm.value.states.length" width="100%">
+            <thead>
+                <tr>
+                    <th>States({{searchForm.value.states.length}})</th>
+                    <th>Frequency</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cd</td>
+                    <td>{{cdTotal}}</td>
+                    <td>{{getStatisticPercentage(cdTotal)}}</td>
+                </tr>
+                <tr>
+                    <td>Gk</td>
+                    <td>{{gkTotal}}</td>
+                    <td>{{getStatisticPercentage(gkTotal)}}</td>
+                </tr>
+                <tr>
+                    <td>Fs</td>
+                    <td>{{fsTotal}}</td>
+                    <td>{{getStatisticPercentage(fsTotal)}}</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>{{cdTotal+gkTotal+fsTotal}}</th>
+                    <th>{{getStatisticPercentage(cdTotal+gkTotal+fsTotal)}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+</section>
+<main-footer></main-footer>

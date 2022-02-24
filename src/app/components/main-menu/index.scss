@@ -1,0 +1,38 @@
+.logoName {
+    height: 120px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin: 5px 0;
+}
+
+.navHolder {
+    background-color: #800000;
+    nav {
+        a {
+            display: inline-block;
+            padding: 0 30px;
+            color: #ffb5b5;
+            text-decoration: none;
+            font-weight: normal;
+            text-align: center;
+            line-height: 40px;
+            font-size: 17px;
+
+            &:active {
+                color: red;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navHolder {
+        nav {
+            a {
+                padding: 0 10px;
+                font-size: 15px;
+            }
+        }
+    }
+}

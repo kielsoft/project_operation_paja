@@ -1,0 +1,40 @@
+
+.logoName {
+    height: 250px;
+    padding: 0;
+    margin: 10px auto;
+}
+
+.fieldGroup {
+    vertical-align: top;
+    border: none;
+    box-sizing: border-box;
+    margin: 0 5px 10px 0;
+    
+    label {
+        display: block;
+        font-weight: bold;
+        padding: 10px 0 5px;
+    }
+
+
+    select, input, textarea, button {
+        width: 300px;
+        padding: 10px;
+        font-size: 18px;
+        box-sizing: border-box;
+        // border: thin solid #ff9494;
+        &.ng-touched.ng-invalid {
+            border: thin solid red; 
+        }
+    }
+
+    button {
+        border: thin solid #aaa;
+    }
+
+}
+
+form.ng-submitted .ng-invalid {
+    border: thin solid red; 
+}

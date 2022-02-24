@@ -1,0 +1,50 @@
+<main-menu></main-menu>
+<section class="container">
+    <h3 class="alignCenter">Most wanted criminals</h3>
+    <img class="wantedBanner block" src="/assets/images/t-banner.png" alt="Wanted List" />
+</section>
+<section class="container overflowAuto" style="background-color: white;">
+    <div style="margin: 20px;">
+        <h4 class="block">Crime Notificaitons</h4>
+        <div class="boxHolder">
+            <span>Today</span>
+            <h1>{{coreService.getRandomNumber(1, 15)}}</h1>
+        </div>
+        <div class="boxHolder">
+            <span>This Week</span>
+            <h1>{{coreService.getRandomNumber(16, 30)}}</h1>
+        </div>
+        <div class="boxHolder">
+            <span>This Month</span>
+            <h1>{{coreService.getRandomNumber(40, 200)}}</h1>
+        </div>
+        <br><br>
+        <h4 class="block">Geographical Distribution</h4>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Cd</th>
+                    <th>Gk</th>
+                    <th>Fs</th>
+                    <th>Notificaitons</th>
+                    <th>Detection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of coreService.getStateDistributionData().slice(0, 10)">
+                    <td>{{item.state}}</td>
+                    <td>{{item.cd}}</td>
+                    <td>{{item.gk}}</td>
+                    <td>{{item.fs}}</td>
+                    <td>{{item.notifications}}</td>
+                    <td>{{item.detections}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a routerLink="/detections">See All...</a>
+        <br><br>
+    </div>
+</section>
+<main-footer></main-footer>

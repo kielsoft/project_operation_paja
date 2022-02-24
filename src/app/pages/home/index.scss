@@ -1,0 +1,34 @@
+.wantedBanner {
+    width: 100%;
+}
+
+.boxHolder {
+    background-color: #ffefef;
+    display: inline-block;
+    padding: 20px;
+    border: thin solid rgb(255, 193, 193);
+    text-align: center;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 10px calc((100% - 90%) / 6);
+
+    h1 {
+        margin: 0;
+        font-size: 40px;
+    }
+}
+
+table {
+    font-size: 14px;
+    border-spacing: 1px;
+    text-align: center;
+
+    th {
+        background-color: #ddd;
+    }
+
+    th, td {
+        border: thin solid #ddd;
+        padding: 5px;
+    }
+}
